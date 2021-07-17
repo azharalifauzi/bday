@@ -19,6 +19,15 @@ const MainPage = () => {
   const { height } = useWindowSize(undefined, 896);
 
   useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = '0';
+    document.body.style.bottom = '0';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+  }, []);
+
+  useEffect(() => {
     const makeShot = (particleRatio: number, opts?: Options) => {
       if (confettiRef.current)
         confettiRef.current({
@@ -109,7 +118,7 @@ const MainPage = () => {
           maxW="450px"
           height={height}
           gridRowGap="4"
-          style={{ scrollSnapAlign: 'center' }}
+          style={{ scrollSnapAlign: 'start' }}
         >
           <Box mx="auto" width="70%" borderRadius="50%" overflow="hidden">
             <Image
@@ -162,7 +171,7 @@ const MainPage = () => {
           py="10"
           maxW="450px"
           height={height}
-          style={{ scrollSnapAlign: 'center' }}
+          style={{ scrollSnapAlign: 'start' }}
           ref={pageTwoRef}
           display="grid"
           gridTemplateRows="repeat(2, 1fr)"
@@ -174,7 +183,7 @@ const MainPage = () => {
             <Text fontSize="2xl" fontWeight="bold" color="pink.400">
               Birthday Wish
             </Text>
-            <Box w="65%">
+            <Box w="60%">
               <ILVideo height="100%" width="100%" />
             </Box>
             <Button
@@ -189,7 +198,7 @@ const MainPage = () => {
             <Text fontSize="2xl" fontWeight="bold" color="pink.400">
               Birthday Gift
             </Text>
-            <Box w="65%">
+            <Box w="60%">
               <ILGift height="100%" width="100%" />
             </Box>
             <Button

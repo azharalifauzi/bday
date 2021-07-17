@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Flex,
   Modal,
@@ -11,7 +10,7 @@ import {
   Text,
   useToast,
 } from '@chakra-ui/react';
-import { useCopyToClipboard } from 'react-use';
+import writeText from 'copy-to-clipboard';
 
 interface ModalGiftProps {
   isOpen: boolean;
@@ -19,27 +18,26 @@ interface ModalGiftProps {
 }
 
 const ModalGift: React.FC<ModalGiftProps> = ({ isOpen, onClose }) => {
-  const [state, copyToClipboard] = useCopyToClipboard();
   const toast = useToast();
 
   const handleCopy = (value: string) => {
-    copyToClipboard(value);
-
-    if (state.error) {
-      toast({
-        title: 'Failed to copy',
-        description: 'Consider to copy the text manually',
-        isClosable: true,
-        duration: 3000,
-        status: 'error',
-      });
-    } else {
+    try {
+      writeText(value);
       toast({
         title: 'Copy Success',
         description: `Successfully Copied No. Resi ${value}`,
         isClosable: true,
         duration: 3000,
         status: 'success',
+      });
+    } catch (err) {
+      if (process.env.NODE_ENV === 'development') console.error(err);
+      toast({
+        title: 'Failed to copy',
+        description: 'Consider to copy the text manually',
+        isClosable: true,
+        duration: 3000,
+        status: 'error',
       });
     }
   };

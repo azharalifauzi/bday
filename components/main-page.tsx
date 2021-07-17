@@ -6,9 +6,13 @@ import ReactCanvasConfetti from 'react-canvas-confetti';
 import type { CreateTypes, Options } from 'canvas-confetti';
 import { useState } from 'react';
 import { ILGift, ILVideo } from 'assets';
+import ModalVideo from './modal-video';
+import ModalGift from './modal-gift';
 
 const MainPage = () => {
   const [age, setAge] = useState<string | number>(0);
+  const [isModalVideoOpen, setModalVideoOpen] = useState<boolean>(false);
+  const [isModalGiftOpen, setModalGiftOpen] = useState<boolean>(false);
   const confettiRef = useRef<CreateTypes | null>(null);
   const pageTwoRef = useRef<HTMLDivElement>(null);
 
@@ -72,6 +76,14 @@ const MainPage = () => {
 
   return (
     <>
+      <ModalGift
+        isOpen={isModalGiftOpen}
+        onClose={() => setModalGiftOpen(false)}
+      />
+      <ModalVideo
+        isOpen={isModalVideoOpen}
+        onClose={() => setModalVideoOpen(false)}
+      />
       <ReactCanvasConfetti
         style={{
           position: 'fixed',
@@ -156,15 +168,20 @@ const MainPage = () => {
           gridTemplateRows="repeat(2, 1fr)"
           alignItems="center"
           justifyItems="center"
+          gridGap="6"
         >
           <Grid justifyItems="center" gridGap="6">
             <Text fontSize="2xl" fontWeight="bold" color="pink.400">
               Birthday Wish
             </Text>
-            <Box w="70%">
+            <Box w="65%">
               <ILVideo height="100%" width="100%" />
             </Box>
-            <Button variant="outline" colorScheme="pink">
+            <Button
+              onClick={() => setModalVideoOpen(true)}
+              variant="outline"
+              colorScheme="pink"
+            >
               Watch Video
             </Button>
           </Grid>
@@ -172,10 +189,14 @@ const MainPage = () => {
             <Text fontSize="2xl" fontWeight="bold" color="pink.400">
               Birthday Gift
             </Text>
-            <Box w="70%">
+            <Box w="65%">
               <ILGift height="100%" width="100%" />
             </Box>
-            <Button variant="outline" colorScheme="pink">
+            <Button
+              onClick={() => setModalGiftOpen(true)}
+              variant="outline"
+              colorScheme="pink"
+            >
               Open Gift
             </Button>
           </Grid>

@@ -12,10 +12,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Shinta&apos;s Birthday</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Container
         py="16"
         gridTemplateRows="auto 1fr auto"

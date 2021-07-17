@@ -118,7 +118,7 @@ const MainPage = () => {
           maxW="450px"
           height={height}
           gridRowGap="4"
-          style={{ scrollSnapAlign: 'start' }}
+          style={{ scrollSnapAlign: 'center' }}
         >
           <Box mx="auto" width="70%" borderRadius="50%" overflow="hidden">
             <Image
@@ -171,7 +171,7 @@ const MainPage = () => {
           py="10"
           maxW="450px"
           height={height}
-          style={{ scrollSnapAlign: 'start' }}
+          style={{ scrollSnapAlign: 'center' }}
           ref={pageTwoRef}
           display="grid"
           gridTemplateRows="repeat(2, 1fr)"

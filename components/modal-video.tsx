@@ -44,7 +44,10 @@ const ModalVideo: React.FC<ModalVideoProps> = ({ isOpen, onClose }) => {
           <Box py="6">
             <ReactPlayer
               width="100%"
-              url="https://www.youtube.com/watch?v=cGYyOY4XaFs"
+              url={
+                process.env.NEXT_PUBLIC_VIDEO_URL ??
+                'https://www.youtube.com/watch?v=HKMP2Woaf2E'
+              }
               controls
               onReady={() => {
                 setLoading(false);

@@ -7,7 +7,7 @@ import type { CreateTypes, Options } from 'canvas-confetti';
 import { useState } from 'react';
 import { ILGift, ILVideo } from 'assets';
 import ModalVideo from './modal-video';
-import ModalGift from './modal-gift';
+import ModalGift from './modal-gift-v2';
 
 const MainPage = () => {
   const [age, setAge] = useState<string | number>(0);
@@ -17,15 +17,6 @@ const MainPage = () => {
   const pageTwoRef = useRef<HTMLDivElement>(null);
 
   const { height } = useWindowSize(undefined, 896);
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.top = '0';
-    document.body.style.bottom = '0';
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-  }, []);
 
   useEffect(() => {
     const makeShot = (particleRatio: number, opts?: Options) => {
@@ -106,11 +97,7 @@ const MainPage = () => {
         // @ts-ignore
         refConfetti={(instance) => (confettiRef.current = instance)}
       />
-      <Box
-        height={height}
-        overflowY="scroll"
-        style={{ scrollSnapType: 'y mandatory' }}
-      >
+      <Box height={height} overflowY="scroll">
         <Container
           display="grid"
           gridTemplateRows="auto 1fr 1fr auto"
@@ -118,12 +105,11 @@ const MainPage = () => {
           maxW="450px"
           height={height}
           gridRowGap="4"
-          style={{ scrollSnapAlign: 'center' }}
         >
           <Box mx="auto" width="70%" borderRadius="50%" overflow="hidden">
             <Image
               layout="responsive"
-              src="/dummy-bday-person.jpg"
+              src="/photo-shinta.jpeg"
               width={1}
               height={1}
               alt="Birthday Person"
@@ -138,7 +124,7 @@ const MainPage = () => {
               fontSize="3xl"
               textAlign="center"
             >
-              Happy Birthday George
+              Happy Birthday Shinta
             </Text>
             <Text px="6" mt="2" textAlign="center" color="gray.500">
               Sending you smiles for every moment of your special day. Have a
@@ -171,7 +157,6 @@ const MainPage = () => {
           py="10"
           maxW="450px"
           height={height}
-          style={{ scrollSnapAlign: 'center' }}
           ref={pageTwoRef}
           display="grid"
           gridTemplateRows="repeat(2, 1fr)"

@@ -33,8 +33,9 @@ const PasswordPage = () => {
     setPassword(value);
   };
 
-  const handleSubmit = () => {
-    if (password !== 'ShintaHBD2021!') {
+  const handleSubmit: React.FormEventHandler = (e) => {
+    e.preventDefault();
+    if (password !== process.env.NEXT_PUBLIC_ENTRANCE_PASSWORD ?? '') {
       setErrors((err) => ({
         ...err,
         password: true,
@@ -56,29 +57,34 @@ const PasswordPage = () => {
       <Box mb="8">
         <ILSecureFile width="100%" height="100%" />
       </Box>
-      <FormControl mb="4" isInvalid={errors.password}>
-        <InputGroup size="md">
-          <Input
-            pr="12"
-            type={show ? 'text' : 'password'}
-            placeholder="Enter password"
-            value={password}
-            onChange={handleChange}
-            name="password"
-          />
-          <InputRightElement width="12">
-            {!show ? (
-              <Icon color="gray.600" onClick={handleClick} as={FiEye} />
-            ) : (
-              <Icon color="gray.600" onClick={handleClick} as={FiEyeOff} />
-            )}
-          </InputRightElement>
-        </InputGroup>
-        <FormErrorMessage>Opps password yang dimasukkan salah</FormErrorMessage>
-      </FormControl>
-      <Button onClick={handleSubmit} colorScheme="pink">
-        Submit
-      </Button>
+      <form onSubmit={handleSubmit}>
+        <FormControl mb="4" isInvalid={errors.password}>
+          <InputGroup size="md">
+            <Input
+              pr="12"
+              type={show ? 'text' : 'password'}
+              placeholder="Enter password"
+              value={password}
+              onChange={handleChange}
+              name="password"
+              autoComplete="off"
+            />
+            <InputRightElement width="12">
+              {!show ? (
+                <Icon color="gray.600" onClick={handleClick} as={FiEye} />
+              ) : (
+                <Icon color="gray.600" onClick={handleClick} as={FiEyeOff} />
+              )}
+            </InputRightElement>
+          </InputGroup>
+          <FormErrorMessage>
+            Opps password yang dimasukkan salah
+          </FormErrorMessage>
+        </FormControl>
+        <Button w="100%" type="submit" colorScheme="pink">
+          Submit
+        </Button>
+      </form>
     </Container>
   );
 };

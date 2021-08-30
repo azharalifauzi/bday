@@ -152,8 +152,7 @@ const MainPage = () => {
           </Box>
           <Button
             onClick={() => {
-              if (pageTwoRef.current)
-                pageTwoRef.current.scrollIntoView({ behavior: 'smooth' });
+              if (pageTwoRef.current) pageTwoRef.current.scrollIntoView(true);
             }}
             mx="auto"
             colorScheme="pink"

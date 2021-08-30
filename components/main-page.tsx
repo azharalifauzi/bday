@@ -109,7 +109,7 @@ const MainPage = () => {
           <Box mx="auto" width="70%" borderRadius="50%" overflow="hidden">
             <Image
               layout="responsive"
-              src="/photo-shinta.jpeg"
+              src="/indah.png"
               width={1}
               height={1}
               alt="Birthday Person"
@@ -124,7 +124,7 @@ const MainPage = () => {
               fontSize="3xl"
               textAlign="center"
             >
-              Happy Birthday Shinta
+              Happy Birthday Indah
             </Text>
             <Text px="6" mt="2" textAlign="center" color="gray.500">
               Sending you smiles for every moment of your special day. Have a
@@ -150,7 +150,7 @@ const MainPage = () => {
             colorScheme="pink"
             w="90%"
           >
-            See Presents
+            Watch Birthday Wishes
           </Button>
         </Container>
         <Container
@@ -159,7 +159,7 @@ const MainPage = () => {
           height={height}
           ref={pageTwoRef}
           display="grid"
-          gridTemplateRows="repeat(2, 1fr)"
+          gridTemplateRows="repeat(1, 1fr)"
           alignItems="center"
           justifyItems="center"
           gridGap="6"
@@ -179,7 +179,7 @@ const MainPage = () => {
               Watch Video
             </Button>
           </Grid>
-          <Grid justifyItems="center" gridGap="6">
+          {/* <Grid justifyItems="center" gridGap="6">
             <Text fontSize="2xl" fontWeight="bold" color="pink.400">
               Birthday Gift
             </Text>
@@ -193,7 +193,7 @@ const MainPage = () => {
             >
               Open Gift
             </Button>
-          </Grid>
+          </Grid> */}
         </Container>
       </Box>
     </>

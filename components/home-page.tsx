@@ -30,7 +30,7 @@ export default function Home() {
             textAlign="center"
             mb="3"
           >
-            Hi Shinta, <br /> This is your birthday
+            Hi Indah, <br /> This is your birthday
           </Text>
           <Text color="gray.500" fontSize="md" mb="6" textAlign="center">
             Congratulation for reaching this stage of your life

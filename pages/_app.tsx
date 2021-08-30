@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <Head>
-        <title>Shinta&apos;s Birthday</title>
+        <title>Indah&apos;s Birthday</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />

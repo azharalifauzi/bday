@@ -1,5 +1,5 @@
 import { Box, Button, Container, Grid, Text } from '@chakra-ui/react';
-import { useWindowSize } from 'react-use';
+import { useWindowSize, useMeasure } from 'react-use';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import ReactCanvasConfetti from 'react-canvas-confetti';
@@ -17,6 +17,7 @@ const MainPage = () => {
   const pageTwoRef = useRef<HTMLDivElement>(null);
 
   const { height } = useWindowSize(undefined, 896);
+  const [photo, { width }] = useMeasure<HTMLDivElement>();
 
   useEffect(() => {
     const makeShot = (particleRatio: number, opts?: Options) => {
@@ -97,16 +98,24 @@ const MainPage = () => {
         // @ts-ignore
         refConfetti={(instance) => (confettiRef.current = instance)}
       />
-      <Box height={height} overflowY="scroll">
+      <Box style={{ height }} minH="620px" overflowY="scroll">
         <Container
+          style={{
+            height: '100%',
+            gridTemplateRows: `minmax(${width}px, auto) 1fr 1fr auto`,
+          }}
           display="grid"
-          gridTemplateRows="auto 1fr 1fr auto"
           py="10"
           maxW="450px"
-          height={height}
           gridRowGap="4"
         >
-          <Box mx="auto" width="70%" borderRadius="50%" overflow="hidden">
+          <Box
+            ref={photo}
+            mx="auto"
+            width="65%"
+            borderRadius="50%"
+            overflow="hidden"
+          >
             <Image
               layout="responsive"
               src="/indah.png"
@@ -156,7 +165,7 @@ const MainPage = () => {
         <Container
           py="10"
           maxW="450px"
-          height={height}
+          height="100%"
           ref={pageTwoRef}
           display="grid"
           gridTemplateRows="repeat(1, 1fr)"

@@ -71,7 +71,7 @@ const MainPage = () => {
 
     setTimeout(() => {
       clearInterval(interval);
-      setAge(23);
+      setAge(24);
     }, 1500);
   }, []);
 
@@ -118,7 +118,7 @@ const MainPage = () => {
           >
             <Image
               layout="responsive"
-              src="/indah.png"
+              src="/fathur.png"
               width={1}
               height={1}
               alt="Birthday Person"
@@ -128,12 +128,12 @@ const MainPage = () => {
           </Box>
           <Box alignSelf="center">
             <Text
-              color="pink.400"
+              color="cyan.400"
               fontWeight="semibold"
               fontSize="3xl"
               textAlign="center"
             >
-              Happy Birthday Indah
+              Happy Birthday Fathur
             </Text>
             <Text px="6" mt="2" textAlign="center" color="gray.500">
               Sending you smiles for every moment of your special day. Have a
@@ -143,7 +143,7 @@ const MainPage = () => {
           <Box alignSelf="center">
             <Text
               fontWeight="bold"
-              color="pink.400"
+              color="cyan.400"
               fontSize="5xl"
               textAlign="center"
             >
@@ -155,8 +155,9 @@ const MainPage = () => {
               if (pageTwoRef.current) pageTwoRef.current.scrollIntoView(true);
             }}
             mx="auto"
-            colorScheme="pink"
+            colorScheme="cyan"
             w="90%"
+            color="white"
           >
             Watch Birthday Wishes
           </Button>
@@ -167,13 +168,13 @@ const MainPage = () => {
           height="100%"
           ref={pageTwoRef}
           display="grid"
-          gridTemplateRows="repeat(1, 1fr)"
+          gridTemplateRows="repeat(2, 1fr)"
           alignItems="center"
           justifyItems="center"
           gridGap="6"
         >
           <Grid justifyItems="center" gridGap="6">
-            <Text fontSize="2xl" fontWeight="bold" color="pink.400">
+            <Text fontSize="2xl" fontWeight="bold" color="cyan.400">
               Birthday Wish
             </Text>
             <Box w="60%">
@@ -182,13 +183,13 @@ const MainPage = () => {
             <Button
               onClick={() => setModalVideoOpen(true)}
               variant="outline"
-              colorScheme="pink"
+              colorScheme="cyan"
             >
               Watch Video
             </Button>
           </Grid>
-          {/* <Grid justifyItems="center" gridGap="6">
-            <Text fontSize="2xl" fontWeight="bold" color="pink.400">
+          <Grid justifyItems="center" gridGap="6">
+            <Text fontSize="2xl" fontWeight="bold" color="cyan.400">
               Birthday Gift
             </Text>
             <Box w="60%">
@@ -197,11 +198,11 @@ const MainPage = () => {
             <Button
               onClick={() => setModalGiftOpen(true)}
               variant="outline"
-              colorScheme="pink"
+              colorScheme="cyan"
             >
               Open Gift
             </Button>
-          </Grid> */}
+          </Grid>
         </Container>
       </Box>
     </>

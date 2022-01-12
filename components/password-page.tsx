@@ -81,7 +81,7 @@ const PasswordPage = () => {
             Opps password yang dimasukkan salah
           </FormErrorMessage>
         </FormControl>
-        <Button w="100%" type="submit" colorScheme="pink">
+        <Button w="100%" type="submit" colorScheme="cyan" color="white">
           Submit
         </Button>
       </form>

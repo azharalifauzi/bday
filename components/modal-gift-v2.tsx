@@ -1,7 +1,5 @@
 import {
   Box,
-  Button,
-  Flex,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -9,10 +7,8 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-  useToast,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import writeText from 'copy-to-clipboard';
 
 interface ModalGiftProps {
   isOpen: boolean;
@@ -40,7 +36,7 @@ const ModalGift: React.FC<ModalGiftProps> = ({ isOpen, onClose }) => {
               layout="responsive"
             />
           </Box>
-          <Text color="pink.400" fontWeight="bold" textAlign="center">
+          <Text color="cyan.400" fontWeight="bold" textAlign="center">
             The present is probably on your hand 😅
           </Text>
         </ModalBody>

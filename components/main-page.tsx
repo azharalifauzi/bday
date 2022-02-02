@@ -118,7 +118,7 @@ const MainPage = () => {
           >
             <Image
               layout="responsive"
-              src="/fathur.png"
+              src="/teni.jpg"
               width={1}
               height={1}
               alt="Birthday Person"
@@ -133,7 +133,7 @@ const MainPage = () => {
               fontSize="3xl"
               textAlign="center"
             >
-              Happy Birthday Fathur
+              Happy Birthday Teni
             </Text>
             <Text px="6" mt="2" textAlign="center" color="gray.500">
               Sending you smiles for every moment of your special day. Have a

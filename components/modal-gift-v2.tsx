@@ -37,7 +37,7 @@ const ModalGift: React.FC<ModalGiftProps> = ({ isOpen, onClose }) => {
             />
           </Box>
           <Text color="cyan.400" fontWeight="bold" textAlign="center">
-            The present is probably on your hand 😅
+            Hadiah Menyusul yaaaa 😝
           </Text>
         </ModalBody>
       </ModalContent>

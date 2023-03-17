@@ -14,9 +14,16 @@ import ReactPlayer from 'react-player';
 interface ModalVideoProps {
   isOpen: boolean;
   onClose: () => void;
+  url?: string;
+  title?: string;
 }
 
-const ModalVideo: React.FC<ModalVideoProps> = ({ isOpen, onClose }) => {
+const ModalVideo: React.FC<ModalVideoProps> = ({
+  isOpen,
+  onClose,
+  title,
+  url,
+}) => {
   const [isLoading, setLoading] = useState<boolean>(true);
 
   const handleClose = () => {
@@ -28,7 +35,7 @@ const ModalVideo: React.FC<ModalVideoProps> = ({ isOpen, onClose }) => {
     <Modal isCentered onClose={handleClose} isOpen={isOpen}>
       <ModalOverlay />
       <ModalContent w="90%">
-        <ModalHeader>Birthday Wishes</ModalHeader>
+        <ModalHeader>{title}</ModalHeader>
         <ModalCloseButton />
         <ModalBody position="relative">
           {isLoading ? (
@@ -44,10 +51,7 @@ const ModalVideo: React.FC<ModalVideoProps> = ({ isOpen, onClose }) => {
           <Box py="6">
             <ReactPlayer
               width="100%"
-              url={
-                process.env.NEXT_PUBLIC_VIDEO_URL ??
-                'https://www.youtube.com/watch?v=HKMP2Woaf2E'
-              }
+              url={url ?? 'https://www.youtube.com/watch?v=HKMP2Woaf2E'}
               controls
               onReady={() => {
                 setLoading(false);

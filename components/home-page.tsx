@@ -24,13 +24,13 @@ export default function Home() {
         </Box>
         <Box px="4">
           <Text
-            color="cyan.400"
+            color="yellow.300"
             fontSize="3xl"
             fontWeight="semibold"
             textAlign="center"
             mb="3"
           >
-            Hi Ana, <br /> This is your birthday
+            Hi Cici, <br /> This is your birthday
           </Text>
           <Text color="gray.500" fontSize="md" mb="6" textAlign="center">
             Congratulation for reaching this stage of your life
@@ -39,9 +39,8 @@ export default function Home() {
         <Button
           onClick={() => Router.push('/password')}
           mx="auto"
-          colorScheme="cyan"
+          colorScheme="yellow"
           w="90%"
-          color="white"
         >
           Go to Main Menu
         </Button>

@@ -11,8 +11,9 @@ import ModalGift from './modal-gift-v2';
 
 const MainPage = () => {
   const [age, setAge] = useState<string | number>(0);
-  const [isModalVideoOpen, setModalVideoOpen] = useState<boolean>(false);
-  const [isModalGiftOpen, setModalGiftOpen] = useState<boolean>(false);
+  const [modalStatus, setModalStatus] = useState<
+    'idle' | 'wish' | 'video' | 'gift'
+  >('idle');
   const confettiRef = useRef<CreateTypes | null>(null);
   const pageTwoRef = useRef<HTMLDivElement>(null);
 
@@ -71,19 +72,27 @@ const MainPage = () => {
 
     setTimeout(() => {
       clearInterval(interval);
-      setAge(24);
+      setAge(26);
     }, 1500);
   }, []);
 
   return (
     <>
       <ModalGift
-        isOpen={isModalGiftOpen}
-        onClose={() => setModalGiftOpen(false)}
+        isOpen={modalStatus === 'gift'}
+        onClose={() => setModalStatus('idle')}
       />
       <ModalVideo
-        isOpen={isModalVideoOpen}
-        onClose={() => setModalVideoOpen(false)}
+        title="Birthday Wishes"
+        isOpen={modalStatus === 'wish'}
+        onClose={() => setModalStatus('idle')}
+        url="https://www.youtube.com/watch?v=jK24QJXym0w"
+      />
+      <ModalVideo
+        title="Birthday Video"
+        isOpen={modalStatus === 'video'}
+        onClose={() => setModalStatus('idle')}
+        url="https://www.youtube.com/watch?v=VyVMjGXJdos"
       />
       <ReactCanvasConfetti
         style={{
@@ -118,7 +127,7 @@ const MainPage = () => {
           >
             <Image
               layout="responsive"
-              src="/ana.jpg"
+              src="/cici.jpg"
               width={1}
               height={1}
               alt="Birthday Person"
@@ -128,12 +137,12 @@ const MainPage = () => {
           </Box>
           <Box alignSelf="center">
             <Text
-              color="cyan.400"
+              color="yellow.300"
               fontWeight="semibold"
               fontSize="3xl"
               textAlign="center"
             >
-              Happy Birthday Ana
+              Happy Birthday Cici
             </Text>
             <Text px="6" mt="2" textAlign="center" color="gray.500">
               Sending you smiles for every moment of your special day. Have a
@@ -143,7 +152,7 @@ const MainPage = () => {
           <Box alignSelf="center">
             <Text
               fontWeight="bold"
-              color="cyan.400"
+              color="yellow.300"
               fontSize="5xl"
               textAlign="center"
             >
@@ -155,7 +164,7 @@ const MainPage = () => {
               if (pageTwoRef.current) pageTwoRef.current.scrollIntoView(true);
             }}
             mx="auto"
-            colorScheme="cyan"
+            colorScheme="yellow"
             w="90%"
             color="white"
           >
@@ -174,33 +183,33 @@ const MainPage = () => {
           gridGap="6"
         >
           <Grid justifyItems="center" gridGap="6">
-            <Text fontSize="2xl" fontWeight="bold" color="cyan.400">
+            <Text fontSize="2xl" fontWeight="bold" color="yellow.300">
               Birthday Wish
             </Text>
             <Box w="60%">
               <ILVideo height="100%" width="100%" />
             </Box>
             <Button
-              onClick={() => setModalVideoOpen(true)}
+              onClick={() => setModalStatus('wish')}
               variant="outline"
-              colorScheme="cyan"
+              colorScheme="yellow"
             >
               Watch Video
             </Button>
           </Grid>
           <Grid justifyItems="center" gridGap="6">
-            <Text fontSize="2xl" fontWeight="bold" color="cyan.400">
-              Birthday Gift
+            <Text fontSize="2xl" fontWeight="bold" color="yellow.300">
+              Birthday Video
             </Text>
             <Box w="60%">
               <ILGift height="100%" width="100%" />
             </Box>
             <Button
-              onClick={() => setModalGiftOpen(true)}
+              onClick={() => setModalStatus('video')}
               variant="outline"
-              colorScheme="cyan"
+              colorScheme="yellow"
             >
-              Open Gift
+              Open Video
             </Button>
           </Grid>
         </Container>

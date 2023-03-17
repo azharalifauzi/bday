@@ -41,6 +41,7 @@ export default function Home() {
           mx="auto"
           colorScheme="yellow"
           w="90%"
+          color="white"
         >
           Go to Main Menu
         </Button>
